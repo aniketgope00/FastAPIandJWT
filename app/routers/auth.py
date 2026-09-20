@@ -14,3 +14,7 @@ def login(loginDetails: UserInLogin):
 @authRouter.post("/signup")
 def signUp(signupDetails: UserInCreate):
     return {"data":signupDetails}
+
+
+# router -> service -> repository -> db
+# router <- service <- repository <- db
