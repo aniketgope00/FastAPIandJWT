@@ -1,11 +1,11 @@
 from .base import BaseRepository
 from app.db.models.user import User
-from app.db.schema.user import UserinCreate, UserInLogin
+from app.db.schema.user import UserInCreate, UserInLogin
 
 
 class UserRepository(BaseRepository):
-    def create_user(self, user_data: UserinCreate):
-        newUser = User(user_data.model_dump(exclude_none = True))
+    def create_user(self, user_data: UserInCreate):
+        newUser = User(**user_data.model_dump(exclude_none = True))
         self.session.add(newUser)
         self.sesion.commit()
         self.session.refresh(instance=newUser)

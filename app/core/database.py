@@ -14,3 +14,8 @@ def get_db():
         yield db
     finally:
         db.close()
+
+
+
+# router -> service -> repository -> db
+# router <- service <- repository <- db
